@@ -1,0 +1,62 @@
+.menuRightContainer {
+  padding: 1.2rem;
+  /* border: 1px solid purple; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  position: relative;
+}
+
+.iconsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #cecece;
+  margin-bottom: 1.2rem;
+}
+
+.imgContainer,
+.iconContainer {
+  padding: 1rem;
+  border-radius: 1000px;
+  /* background-color: red; */
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.imgContainer:hover,
+.iconContainer:hover {
+  background-color: #ccc;
+}
+
+img {
+  height: 2.4rem;
+}
+
+.icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.hideButton {
+  position: absolute;
+  bottom: 10px;
+  transition: all 0.3s;
+
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  border-radius: 1000px;
+  background-color: #d4d4d4;
+}
+
+.btnHidden {
+  transform: translateX(-40%) rotate(180deg);
+}

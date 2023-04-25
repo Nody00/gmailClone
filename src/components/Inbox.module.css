@@ -1,0 +1,98 @@
+.inboxContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 16px;
+
+  display: grid;
+  grid-template-rows: 5rem 5rem auto;
+}
+
+.searchOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem;
+}
+
+.selectionBox,
+.aboutBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.aboutBox p {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #979797;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+.aboutBox p:hover {
+  background-color: #ebebeb;
+}
+
+.iconBox {
+  padding: 1.2rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.iconBox:hover {
+  background-color: #ebebeb;
+}
+
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  color: #666;
+}
+
+.inboxFilterBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.inboxFilter {
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+  padding-left: 2.4rem;
+  padding-right: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+}
+
+.inboxFilter:hover {
+  background-color: #ebebeb;
+}
+
+.inboxFilter p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #666;
+}
+
+.inboxFilterActive {
+  color: #0b57d0;
+  border-bottom: 3px solid #0b57d0;
+}
+.inboxFilterActive p,
+.inboxFilterActive .icon {
+  color: #0b57d0;
+}

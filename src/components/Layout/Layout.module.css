@@ -1,0 +1,27 @@
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 25rem auto 6rem;
+  grid-template-rows: 7rem auto;
+  height: 100vh;
+  transition: all 0.3s;
+
+  position: relative;
+}
+
+.menuShort {
+  grid-template-columns: 7rem auto 6rem;
+}
+
+.rightMenuShort {
+  grid-template-columns: 25rem auto 0rem;
+}
+
+.both {
+  grid-template-columns: 7rem auto 0rem;
+}
+
+.mainContent {
+  padding: 1.2rem;
+  /* border: 1px solid blue; */
+  height: 90vh;
+}

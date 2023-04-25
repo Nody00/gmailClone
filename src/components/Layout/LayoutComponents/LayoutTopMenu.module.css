@@ -1,0 +1,334 @@
+.menuTop {
+  padding: 1.2rem;
+  /* border: 1px solid yellow; */
+  grid-column: 1/-1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: relative; */
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  /* padding: 2rem; */
+  cursor: pointer;
+}
+
+.logoImage {
+  width: 10rem;
+  height: 4rem;
+}
+
+.iconBox {
+  padding: 1.4rem;
+
+  border-radius: 1000px;
+  cursor: pointer;
+  position: relative;
+}
+
+.iconBox:hover .toolTip {
+  visibility: visible;
+}
+
+.iconBox:hover {
+  background-color: rgba(124, 124, 124, 0.185);
+}
+
+.icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+/*  */
+
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background-color: red; */
+  width: 60%;
+  padding: 0.3rem 0.5rem;
+  border-radius: 9px;
+  background-color: #eaf1fb;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.searchBarContainerFocus {
+  background-color: #fff;
+  /* box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.2);
+   */
+  /* border: 1px solid #adadadb9; */
+  box-shadow: 0 2px 2px 0 rgb(65 69 73 / 30%), 0 1px 3px 1px rgb(65 69 73 / 15%);
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.searchInput {
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.searchInput:focus {
+  background-color: #fff;
+}
+
+.searchBarIconBox {
+  padding: 0.9rem;
+  border-radius: 1000px;
+  position: relative;
+  margin-right: 0.5rem;
+}
+.searchBarIconBox:hover {
+  background-color: rgba(124, 124, 124, 0.185);
+}
+.searchBarIconBox:hover .toolTip {
+  visibility: visible;
+}
+
+.Close {
+  display: none;
+}
+
+.searchBarIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #444746;
+}
+
+.searchInput {
+  border: none;
+  background-color: #eaf1fb;
+  outline: none;
+
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.dropdownContainer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  background-color: #fff;
+  border-top: 1px solid #adadad;
+  height: 20rem;
+  width: 100%;
+  z-index: 15;
+  /* border: 1px solid red; */
+  /* padding: 1rem; */
+
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+
+  box-shadow: 0 2px 2px 0 rgb(65 69 73 / 30%), 0 1px 3px 1px rgb(65 69 73 / 15%);
+}
+
+.filterSection {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #adadad;
+  /* margin-bottom: 1rem; */
+}
+
+.filterItem {
+  padding: 1rem;
+  border: 1px solid #474747;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+}
+
+.filterItem:hover {
+  background-color: #dbdbdb;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  /* padding: 0rem 0.2rem; */
+  /* gap: 1rem; */
+}
+
+.resultItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 1rem 0; */
+  padding-right: 1rem;
+  border-left: 2px solid transparent;
+  cursor: pointer;
+}
+
+.resultItem:hover {
+  border-left: 2px solid blue;
+  background-color: #d3d3d3;
+}
+
+.boxOne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 1.2rem; */
+}
+
+.resultIconBox {
+  padding: 1.2rem;
+}
+
+.resultIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #888;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.emailText {
+  font-size: 1.4rem;
+}
+.recipientText {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.dateText {
+  font-size: 1.4rem;
+}
+
+/*  */
+
+.smallMenuContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.smallMenuBtn {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 1000px;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  cursor: pointer;
+}
+.smallMenuBtn:hover {
+  background-color: rgba(124, 124, 124, 0.185);
+}
+
+.hoverSmallMenuBtn {
+  background-color: rgba(124, 124, 124, 0.185);
+}
+
+.smallMenuBtn:hover .toolTip {
+  visibility: visible;
+}
+
+.smallMenuBtn:hover .toolTipProfile {
+  visibility: visible;
+}
+
+.smallMenuIcon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.toolTip {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(130%);
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.toolTipProfile {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(120%) translateX(-80%);
+  padding: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.helpContainer {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  transform: translateY(110%) translateX(-80%);
+  box-shadow: 0 2px 2px 0 rgb(65 69 73 / 30%), 0 1px 3px 1px rgb(65 69 73 / 15%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.2rem;
+  z-index: 15;
+  width: 20rem;
+  background-color: #fff;
+}
+
+.helpContainer p {
+  font-size: 1.4;
+  color: #444746;
+  width: 100%;
+  text-align: left;
+
+  padding: 1rem 2rem;
+}
+
+.helpContainer p:hover {
+  background-color: #dbdbdb;
+}
+
+.helpContact {
+  width: 100%;
+  border-top: 1px solid #666;
+  padding-top: 1rem;
+}
