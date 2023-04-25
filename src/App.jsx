@@ -2,10 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Inbox from "./components/Inbox";
 import { loader as emailLoader } from "./components/Inbox";
+import Sent from "./components/Sent";
+import { loader as sentEmailLoader } from "./components/Sent";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+
     children: [
       {
         path: "/",
@@ -22,7 +25,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/sent",
-        // element: <Inbox />,
+        element: <Sent />,
+        loader: sentEmailLoader,
       },
       {
         path: "/drafts",

@@ -1,0 +1,128 @@
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import ListItem from "./ListItem";
+
+import { useLoaderData } from "react-router-dom";
+import styles from "./Sent.module.css";
+import {
+  MdOutlineSelectAll,
+  MdRefresh,
+  MdMoreVert,
+  MdChevronLeft,
+  MdChevronRight,
+  MdKeyboardAlt,
+  MdInbox,
+  MdOutlinePersonAddAlt1,
+  MdAddShoppingCart,
+} from "react-icons/md";
+import EmailList from "./EmailList";
+const Sent = () => {
+  const data = useLoaderData();
+  let dataArr = Object.values(data);
+
+  function onEnd(result) {
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const movedEmail = dataArr[source.index];
+    dataArr.splice(source.index, 1);
+
+    dataArr.splice(destination.index, 0, movedEmail);
+
+    dataArr.join();
+  }
+
+  return (
+    <DragDropContext onDragEnd={onEnd}>
+      <div className={styles.inboxContainer}>
+        <div className={styles.searchOptions}>
+          <div className={styles.selectionBox}>
+            <div className={styles.iconBox}>
+              <MdOutlineSelectAll className={styles.icon} />
+            </div>
+            <div className={styles.iconBox}>
+              <MdRefresh className={styles.icon} />
+            </div>
+            <div className={styles.iconBox}>
+              <MdMoreVert className={styles.icon} />
+            </div>
+          </div>
+
+          <div className={styles.aboutBox}>
+            <p>1-50 of 340</p>
+            <div className={styles.iconBox}>
+              <MdChevronLeft className={styles.icon} />
+            </div>
+            <div className={styles.iconBox}>
+              <MdChevronRight className={styles.icon} />
+            </div>
+            <div className={styles.iconBox}>
+              <MdKeyboardAlt className={styles.icon} />
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.inboxFilterBox}>
+          <div className={`${styles.inboxFilter} ${styles.inboxFilterActive}`}>
+            <MdInbox className={styles.icon} />
+            <p>Primary</p>
+          </div>
+
+          <div className={styles.inboxFilter}>
+            <MdAddShoppingCart className={styles.icon} />
+            <p>Promotions</p>
+          </div>
+
+          <div className={styles.inboxFilter}>
+            <MdOutlinePersonAddAlt1 className={styles.icon} />
+            <p>Social</p>
+          </div>
+        </div>
+        <Droppable droppableId="key1">
+          {(provided) => (
+            <EmailList {...provided.droppableProps} refProp={provided.innerRef}>
+              {dataArr.map((email, index) => (
+                <ListItem
+                  key={index}
+                  index={index}
+                  task={index.toString()}
+                  userName={email.userEmail}
+                  description={email.description}
+                  date={email.date}
+                />
+              ))}
+
+              {provided.placeholder}
+            </EmailList>
+          )}
+        </Droppable>
+      </div>
+    </DragDropContext>
+  );
+};
+
+export default Sent;
+
+export async function loader({ request, params }) {
+  try {
+    const response = await fetch(
+      "https://clone-ea669-default-rtdb.europe-west1.firebasedatabase.app/sentEmails.json"
+    );
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error(error);
+    return "error";
+  }
+}

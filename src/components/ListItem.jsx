@@ -7,6 +7,8 @@ import {
 } from "react-icons/md";
 import { Draggable } from "react-beautiful-dnd";
 const ListItem = (props) => {
+  const newDate = new Date(props.date);
+  const newDateString = newDate.toLocaleDateString("en-US");
   return (
     <Draggable draggableId={props.task} index={props.index}>
       {(provided) => (
@@ -31,7 +33,7 @@ const ListItem = (props) => {
           <div className={styles.itemTitleBox}>
             <p>{props.description}</p>
           </div>
-          <p className={styles.itemDate}>{props.date}</p>
+          <p className={styles.itemDate}>{newDateString}</p>
         </div>
       )}
     </Draggable>
