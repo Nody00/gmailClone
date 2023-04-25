@@ -17,9 +17,28 @@ import ListItem from "./ListItem";
 import { useLoaderData } from "react-router-dom";
 const Inbox = () => {
   const data = useLoaderData();
-  const dataArr = Object.values(data);
+  let dataArr = Object.values(data);
+
   function onEnd(result) {
-    console.log(result);
+    const { destination, source, draggableId } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      return;
+    }
+
+    const movedEmail = dataArr[source.index];
+    dataArr.splice(source.index, 1);
+
+    dataArr.splice(destination.index, 0, movedEmail);
+
+    dataArr.join();
   }
 
   return (
@@ -75,7 +94,7 @@ const Inbox = () => {
                 <ListItem
                   key={index}
                   index={index}
-                  task="1"
+                  task={index.toString()}
                   userName={email.userEmail}
                   description={email.description}
                   date={email.date}

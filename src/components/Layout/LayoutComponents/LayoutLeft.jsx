@@ -30,7 +30,7 @@ const LayoutLeftMenu = (props) => {
 
       <nav className={styles.inboxNav}>
         <NavLink
-          to="/inbox"
+          to="/"
           className={({ isActive }) => (isActive ? styles.active : null)}
           end
         >

@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/inbox",
+        path: "/",
         element: <Inbox />,
         loader: emailLoader,
       },
