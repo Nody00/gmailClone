@@ -96,3 +96,9 @@
 .inboxFilterActive .icon {
   color: #0b57d0;
 }
+
+.getStarted {
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1.2rem;
+}

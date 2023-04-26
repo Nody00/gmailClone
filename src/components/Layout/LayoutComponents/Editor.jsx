@@ -4,15 +4,48 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import styles from "./Editor.module.css";
 import { MdClose } from "react-icons/md";
 import { useRef } from "react";
-import { useSubmit } from "react-router-dom";
-import { EditorState, ContentState } from "draft-js";
+import { EditorState } from "draft-js";
+import uniqid from "uniqid";
 const EditorComponent = (props) => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const [errorState, setErrorState] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const recipientInputRef = useRef();
   const subjectInputRef = useRef();
-  const submit = useSubmit();
+
+  async function editorCloseHandler() {
+    const recipient = recipientInputRef.current.value;
+    const subject = subjectInputRef.current.value;
+    const emailText = editorState.getCurrentContent().getPlainText();
+
+    if (recipient !== "" || subject !== "" || emailText.length > 0) {
+      // add email to drafts
+      const newMailData = {
+        userEmail: recipient,
+        subject: subject,
+        description: emailText,
+        date: new Date(),
+        starred: false,
+        id: uniqid(),
+      };
+
+      const response = await fetch(
+        "https://clone-ea669-default-rtdb.europe-west1.firebasedatabase.app/drafts.json",
+        {
+          method: "POST",
+          body: JSON.stringify(newMailData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      props.hide();
+      return;
+    }
+
+    props.hide();
+  }
+
   function editorHandler(editorState) {
     setEditorState(editorState);
   }
@@ -47,6 +80,8 @@ const EditorComponent = (props) => {
       subject: subject,
       description: emailText,
       date: new Date(),
+      starred: false,
+      id: uniqid(),
     };
 
     const response = await fetch(
@@ -139,7 +174,7 @@ const EditorComponent = (props) => {
             <p className={styles.helpText}>Send email</p>
           </button>
           {errorState && <p className={styles.error}>{errorMessage}</p>}
-          <div className={styles.buttonClose} onClick={() => props.hide()}>
+          <div className={styles.buttonClose} onClick={editorCloseHandler}>
             <MdClose className={styles.icon} />
             <p className={styles.helpText}>Close editor</p>
           </div>

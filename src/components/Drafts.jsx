@@ -1,4 +1,8 @@
-import styles from "./Inbox.module.css";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import ListItem from "./ListItem";
+
+import { useLoaderData } from "react-router-dom";
+import styles from "./Drafts.module.css";
 import {
   MdOutlineSelectAll,
   MdRefresh,
@@ -11,11 +15,7 @@ import {
   MdAddShoppingCart,
 } from "react-icons/md";
 import EmailList from "./EmailList";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import ListItem from "./ListItem";
-
-import { useLoaderData } from "react-router-dom";
-const Inbox = () => {
+const Drafts = () => {
   const data = useLoaderData();
   let dataArr = Object.values(data);
 
@@ -70,7 +70,7 @@ const Inbox = () => {
             </div>
           </div>
         </div>
-
+        {/* 
         <div className={styles.inboxFilterBox}>
           <div className={`${styles.inboxFilter} ${styles.inboxFilterActive}`}>
             <MdInbox className={styles.icon} />
@@ -86,7 +86,7 @@ const Inbox = () => {
             <MdOutlinePersonAddAlt1 className={styles.icon} />
             <p>Social</p>
           </div>
-        </div>
+        </div> */}
         <Droppable droppableId="key1">
           {(provided) => (
             <EmailList {...provided.droppableProps} refProp={provided.innerRef}>
@@ -100,6 +100,7 @@ const Inbox = () => {
                   date={email.date}
                   starred={email.starred}
                   id={email.id}
+                  draft={true}
                 />
               ))}
 
@@ -112,12 +113,12 @@ const Inbox = () => {
   );
 };
 
-export default Inbox;
+export default Drafts;
 
 export async function loader({ request, params }) {
   try {
     const response = await fetch(
-      "https://clone-ea669-default-rtdb.europe-west1.firebasedatabase.app/emails.json"
+      "https://clone-ea669-default-rtdb.europe-west1.firebasedatabase.app/drafts.json"
     );
 
     const data = await response.json();

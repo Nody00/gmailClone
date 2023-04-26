@@ -4,6 +4,9 @@ import Inbox from "./components/Inbox";
 import { loader as emailLoader } from "./components/Inbox";
 import Sent from "./components/Sent";
 import { loader as sentEmailLoader } from "./components/Sent";
+import Starred from "./components/Starred";
+import Drafts from "./components/Drafts";
+import { loader as draftEmailLoader } from "./components/Drafts";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/starred",
-        // element: <Inbox />,
+        element: <Starred />,
       },
       {
         path: "/snoozed",
@@ -30,7 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/drafts",
-        // element: <Inbox />,
+        element: <Drafts />,
+        loader: draftEmailLoader,
       },
       {
         path: "/important",

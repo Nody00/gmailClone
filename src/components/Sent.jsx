@@ -70,7 +70,7 @@ const Sent = () => {
             </div>
           </div>
         </div>
-
+        {/* 
         <div className={styles.inboxFilterBox}>
           <div className={`${styles.inboxFilter} ${styles.inboxFilterActive}`}>
             <MdInbox className={styles.icon} />
@@ -86,7 +86,7 @@ const Sent = () => {
             <MdOutlinePersonAddAlt1 className={styles.icon} />
             <p>Social</p>
           </div>
-        </div>
+        </div> */}
         <Droppable droppableId="key1">
           {(provided) => (
             <EmailList {...provided.droppableProps} refProp={provided.innerRef}>
@@ -98,6 +98,8 @@ const Sent = () => {
                   userName={email.userEmail}
                   description={email.description}
                   date={email.date}
+                  starred={email.starred}
+                  id={email.id}
                 />
               ))}
 

@@ -183,11 +183,11 @@ const LayoutTopMenu = (props) => {
 
         <button className={styles.smallMenuBtn}>
           <MdPersonOutline className={styles.smallMenuIcon} />
-          <p className={styles.toolTipProfile}>
+          <div className={styles.toolTipProfile}>
             <p>Google Account</p>
             <p>Dino Krcic</p>
             <p>dinokrcicprof@gmail.com</p>
-          </p>
+          </div>
         </button>
       </div>
     </div>

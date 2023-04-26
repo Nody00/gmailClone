@@ -1,4 +1,8 @@
-import styles from "./Inbox.module.css";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import ListItem from "./ListItem";
+
+import { useLoaderData } from "react-router-dom";
+import styles from "./Starred.module.css";
 import {
   MdOutlineSelectAll,
   MdRefresh,
@@ -11,13 +15,9 @@ import {
   MdAddShoppingCart,
 } from "react-icons/md";
 import EmailList from "./EmailList";
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import ListItem from "./ListItem";
-
-import { useLoaderData } from "react-router-dom";
-const Inbox = () => {
-  const data = useLoaderData();
-  let dataArr = Object.values(data);
+import { useSelector } from "react-redux";
+const Starred = () => {
+  const dataArr = useSelector((state) => state.starred.starredArr);
 
   function onEnd(result) {
     const { destination, source, draggableId } = result;
@@ -71,22 +71,14 @@ const Inbox = () => {
           </div>
         </div>
 
-        <div className={styles.inboxFilterBox}>
-          <div className={`${styles.inboxFilter} ${styles.inboxFilterActive}`}>
-            <MdInbox className={styles.icon} />
-            <p>Primary</p>
+        {dataArr.length === 0 && (
+          <div className={styles.getStarted}>
+            No starred messages. Stars let you give messages a special status to
+            make them easier to find. To star a message, click on the star
+            outline beside any message or conversation.
           </div>
+        )}
 
-          <div className={styles.inboxFilter}>
-            <MdAddShoppingCart className={styles.icon} />
-            <p>Promotions</p>
-          </div>
-
-          <div className={styles.inboxFilter}>
-            <MdOutlinePersonAddAlt1 className={styles.icon} />
-            <p>Social</p>
-          </div>
-        </div>
         <Droppable droppableId="key1">
           {(provided) => (
             <EmailList {...provided.droppableProps} refProp={provided.innerRef}>
@@ -95,14 +87,13 @@ const Inbox = () => {
                   key={index}
                   index={index}
                   task={index.toString()}
-                  userName={email.userEmail}
+                  userName={email.userName}
                   description={email.description}
                   date={email.date}
                   starred={email.starred}
                   id={email.id}
                 />
               ))}
-
               {provided.placeholder}
             </EmailList>
           )}
@@ -112,19 +103,4 @@ const Inbox = () => {
   );
 };
 
-export default Inbox;
-
-export async function loader({ request, params }) {
-  try {
-    const response = await fetch(
-      "https://clone-ea669-default-rtdb.europe-west1.firebasedatabase.app/emails.json"
-    );
-
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error(error);
-    return "error";
-  }
-}
+export default Starred;

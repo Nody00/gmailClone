@@ -9,6 +9,10 @@
   background-color: #fff;
 }
 
+.listItemClicked {
+  background-color: #f6f9ff;
+}
+
 .itemIconBox {
   display: flex;
   align-items: center;
@@ -25,6 +29,14 @@
   color: #888;
 
   border: 1px solid transparent;
+
+  position: relative;
+}
+
+.draft {
+  font-size: 1.4rem;
+  /* font-weight: 600; */
+  color: red;
 }
 
 .iconBox:hover {
@@ -39,6 +51,10 @@
 .icon {
   width: 2rem;
   height: 2rem;
+}
+
+.starredIcon {
+  color: #fcc419;
 }
 
 .senderText {
@@ -62,4 +78,33 @@
 
 .itemDate {
   font-size: 1.4rem;
+}
+
+.helpText {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  transform: translateX(50%) translateY(100%);
+  visibility: hidden;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  z-index: 1000;
+}
+
+.helpTextBig {
+  transform: translateY(100%);
+}
+
+.iconBox:hover .helpText {
+  visibility: visible;
 }
