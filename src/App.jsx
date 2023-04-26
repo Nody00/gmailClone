@@ -7,6 +7,8 @@ import { loader as sentEmailLoader } from "./components/Sent";
 import Starred from "./components/Starred";
 import Drafts from "./components/Drafts";
 import { loader as draftEmailLoader } from "./components/Drafts";
+import EmailView from "./components/EmailView";
+import { loader as emailViewLoader } from "./components/EmailView";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -59,6 +61,11 @@ const router = createBrowserRouter([
       {
         path: "/bin",
         // element: <Inbox />,
+      },
+      {
+        path: "/:emailId",
+        element: <EmailView />,
+        loader: emailViewLoader,
       },
     ],
   },

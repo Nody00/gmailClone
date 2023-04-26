@@ -12,6 +12,7 @@ import {
 } from "react-icons/md";
 import { IoOptions } from "react-icons/io5";
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 const LayoutTopMenu = (props) => {
   const [searchFocus, setSearchFocus] = useState(false);
   const [showClear, setShowClear] = useState(false);
@@ -54,7 +55,9 @@ const LayoutTopMenu = (props) => {
           <MdMenu className={styles.icon} />
           <p className={styles.toolTip}>Main menu</p>
         </div>
-        <img src={gmailImage} alt="" className={styles.logoImage} />
+        <Link to="/">
+          <img src={gmailImage} alt="" className={styles.logoImage} />
+        </Link>
       </div>
 
       <div

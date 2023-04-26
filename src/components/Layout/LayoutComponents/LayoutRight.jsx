@@ -11,20 +11,25 @@ const LayoutMenuRight = (props) => {
       <div className={styles.iconsContainer}>
         <div className={styles.imgContainer}>
           <img src={calendar} alt="" className={styles.image} />
+          <p className={styles.helpText}>Calendar</p>
         </div>
         <div className={styles.imgContainer}>
           <img src={keep} alt="" className={styles.image} />
+          <p className={styles.helpText}>Keep</p>
         </div>
         <div className={styles.imgContainer}>
           <img src={tasks} alt="" className={styles.image} />
+          <p className={styles.helpText}>Task</p>
         </div>
         <div className={styles.imgContainer}>
           <img src={contacts} alt="" className={styles.image} />
+          <p className={styles.helpText}>Contacts</p>
         </div>
       </div>
 
       <div className={styles.iconContainer}>
         <MdOutlineAdd className={styles.icon} />
+        <p className={styles.helpText}>Get add-ons</p>
       </div>
 
       <button

@@ -27,11 +27,20 @@
   /* background-color: red; */
   transition: all 0.2s;
   cursor: pointer;
+
+  position: relative;
 }
 
 .imgContainer:hover,
 .iconContainer:hover {
   background-color: #ccc;
+}
+
+.imgContainer:hover .helpText {
+  visibility: visible;
+}
+.iconContainer:hover .helpText {
+  visibility: visible;
 }
 
 img {
@@ -55,8 +64,30 @@ img {
   padding: 1.2rem;
   border-radius: 1000px;
   background-color: #d4d4d4;
+
+  cursor: pointer;
 }
 
 .btnHidden {
   transform: translateX(-40%) rotate(180deg);
+}
+
+.helpText {
+  position: absolute;
+  /* top: 0; */
+  right: 0;
+
+  transform: translateX(-50%);
+  visibility: hidden;
+  padding: 0.5rem !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  font-size: 1.2rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  z-index: 1500;
 }

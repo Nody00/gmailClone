@@ -13,6 +13,7 @@ import {
 } from "../reduxState/starredState/starredSlice";
 import { Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const ListItem = (props) => {
   const newDate = new Date(props.date);
   const newDateString = newDate.toLocaleDateString("en-US");
@@ -100,9 +101,11 @@ const ListItem = (props) => {
 
             {/* <p className={styles.senderText}>{props.userName}</p> */}
           </div>
-          <div className={styles.itemTitleBox}>
-            <p>{props.description}</p>
-          </div>
+          <Link to={`/${props.id}`}>
+            <div className={styles.itemTitleBox}>
+              <p>{props.description}</p>
+            </div>
+          </Link>
           <p className={styles.itemDate}>{newDateString}</p>
         </div>
       )}
