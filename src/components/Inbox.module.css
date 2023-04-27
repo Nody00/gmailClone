@@ -96,3 +96,19 @@
 .inboxFilterActive .icon {
   color: #0b57d0;
 }
+
+@media (max-width: 72em) {
+  .searchOptions {
+    justify-content: flex-start;
+  }
+
+  .inboxContainer {
+    width: 90%;
+  }
+}
+/* @media (max-width: 72em) {
+}
+@media (max-width: 72em) {
+}
+@media (max-width: 72em) {
+} */

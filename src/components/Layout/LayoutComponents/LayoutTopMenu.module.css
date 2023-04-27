@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   /* position: relative; */
 }
 
@@ -332,4 +333,35 @@
   width: 100%;
   border-top: 1px solid #666;
   padding-top: 1rem;
+}
+
+@media (max-width: 72em) {
+  .menuTop {
+    justify-content: flex-start;
+    gap: 1.2rem;
+  }
+  .searchBarContainer {
+    width: 60%;
+  }
+}
+@media (max-width: 58em) {
+  .searchBarContainer {
+    width: 50%;
+  }
+}
+@media (max-width: 58em) {
+  .searchBarContainer {
+    width: 40%;
+  }
+}
+@media (max-width: 46em) {
+  .searchBarContainer {
+    width: 30%;
+  }
+}
+
+@media (max-width: 41em) {
+  .searchBarContainer {
+    width: 20%;
+  }
 }
